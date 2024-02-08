@@ -1,0 +1,6 @@
+﻿namespace WebSite.TestRequests
+{
+    public class Request
+    {
+    }
+}
