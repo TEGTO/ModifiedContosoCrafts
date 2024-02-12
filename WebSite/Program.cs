@@ -1,4 +1,6 @@
-using WebSite.Services;
+using MySqlConnector;
+using ContosoCrafts.WebSite.Middleware;
+using ContosoCrafts.WebSite.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 services.AddRazorPages();
 services.AddServerSideBlazor();
-services.AddTransient<JsonFileProductService>();
+services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
+services.AddSingleton<IProductService, MySqlProductService>();
 services.AddControllers();
 
 var app = builder.Build();
@@ -14,14 +17,16 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
+	app.UseExceptionHandler("/Error");
+	app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//app.UseStatusCodePagesWithReExecute("/errors/{0}"); // For redirection on errors 
+app.UseMiddleware<Handle405Middleware>();
 
 app.UseAuthorization();
 

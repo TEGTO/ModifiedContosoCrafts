@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebSite.Models;
-using WebSite.Services;
+using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
 
-namespace WebSite.Pages
+namespace ContosoCrafts.WebSite.Pages
 {
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private JsonFileProductService productService;
+        private IProductService productService;
 
         public IEnumerable<Product> Products { get; private set; }
 
-        public IndexModel(ILogger<IndexModel> logger, JsonFileProductService productService)
+        public IndexModel(ILogger<IndexModel> logger, IProductService productService)
         {
             _logger = logger;
             this.productService = productService;

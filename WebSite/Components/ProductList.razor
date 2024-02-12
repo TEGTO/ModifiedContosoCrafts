@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components.Web;
-@using WebSite.Models
-@using WebSite.Services
-@inject JsonFileProductService productService
+@using ContosoCrafts.WebSite.Models
+@using ContosoCrafts.WebSite.Services
+@inject IProductService productService
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -10,30 +10,34 @@
 	}
 </style>
 
-<div class="container">
+<div id="productsContainer" class="container">
 	<div class="row">
 		@foreach (var product in productService.GetProducts())
 		{
 			<div class="col-lg-4 col-md-5 mb-2">
-				<div class="card" style=" height: 23rem;">
+				<div class="card">
 					<img src="@product.Image" class="card-img-top" alt="..." style="height: 18rem;">
-					<div class="card-body" style="height: 3rem;">
-						<h5 class="card-title">@product.Title</h5>
+					<div class="card-body">
+						<h5 class="card-title" style="height: 2rem;">@product.Title</h5>
 					</div>
-				</div>
-				<div class="card-footer">
-					<div class="text-muted">
-						<button @onclick="(e => SelectProduct(product?.Id ?? string.Empty))"
-								data-toggle="modal" data-target="#productModal" class="btn btn-primary">
-							More Info
-						</button>
+					<div class="border-top"></div> <!-- Separator -->
+					<div class="card-body">
+						<div class="text-muted">
+							<button @onclick="(e => SelectProduct(product?.Id ?? string.Empty))"
+									data-toggle="modal" data-target="#productModal" class="btn btn-primary rounded-1">
+								More Info
+							</button>
+							<button @onclick="(e => DeleteProduct(product?.Id ?? string.Empty))"
+									type="button" class="btn btn-danger rounded-0">
+								Delete
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		}
 	</div>
 </div>
-
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		@if (selectedProduct != null)
@@ -82,16 +86,24 @@
 
 @code {
 	private Product selectedProduct;
-	private string selectedProductId;
 	private float currentRating = 0;
 	private int voteCount = 0;
-	string voteLabel;
+	private string voteLabel;
 
 	private void SelectProduct(string productId)
 	{
-		selectedProductId = productId;
 		selectedProduct = productService.GetProducts().First(x => x.Id == productId);
 		GetCurrentRating();
+	}
+	private async Task DeleteProduct(string productId)
+	{
+		productService.DeleteProductById(productId);
+		await RefreshProducts();
+	}
+	private async Task RefreshProducts()
+	{
+		await Task.Delay(50);
+		StateHasChanged();
 	}
 	private void GetCurrentRating()
 	{
@@ -106,12 +118,12 @@
 			voteLabel = voteCount > 1 ? "Votes" : "Vote";
 			currentRating = selectedProduct.Ratings.Sum() / voteCount;
 		}
-		Console.WriteLine($"Current rating for {selectedProductId}: {currentRating}");
+		Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
 	}
 	private void SumbitRating(float rating)
 	{
-		Console.WriteLine($"Raiting received for {selectedProductId}: {rating}");
-		productService.AddRatings(selectedProductId, rating);
-		SelectProduct(selectedProductId);
+		Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
+		productService.AddRatings(selectedProduct.Id, rating);
+		SelectProduct(selectedProduct.Id);
 	}
 }

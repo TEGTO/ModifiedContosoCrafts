@@ -1,8 +1,30 @@
 {
   "version": 2,
-  "dgSpecHash": "XOcboIgOof1G1HcFey4ppGxwFovz5MwGksW/JvjuR4HhR7iZ6tF0JMRip7ByahEC+x105VoZYoiebpLn8DMuVg==",
+  "dgSpecHash": "96PW5wnCjfRbyxN65iMo05vA3FZa26oDsojTMDQvNDM/FNnkzwFFfhrzfpk4uSRsWwDOVltROFbzyjIOf6KcWg==",
   "success": true,
-  "projectFilePath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\WebSite\\WebSite.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\WebSite\\ContosoCrafts.WebSite.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pshon\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.3.0\\microsoft.aspnet.webapi.core.5.3.0.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\mysqlconnector\\2.3.5\\mysqlconnector.2.3.5.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\mysqlconnector.dependencyinjection\\2.3.5\\mysqlconnector.dependencyinjection.2.3.5.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

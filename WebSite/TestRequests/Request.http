@@ -1,6 +1,9 @@
-﻿namespace WebSite.TestRequests
-{
-    public class Request
-    {
-    }
-}
+﻿GET https://localhost:44301/products
+###
+GET https://localhost:44301/products/1
+###
+PUT https://localhost:44301/products/create
+###
+DELETE https://localhost:44301/products/delete/9950a450-dee7-4f9a-a022-9b025a9b792d
+###
+POST https://localhost:44301/products/rate?ProductId=1&Rating=5

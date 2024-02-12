@@ -1,29 +1,48 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebSite.Models;
-using WebSite.Services;
+﻿using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebSite.Controllers
+namespace WebContosoCrafts.WebSiteSite.Controllers
 {
     [Route("[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private JsonFileProductService productService;
+        private IProductService productService;
 
-        public ProductsController(JsonFileProductService productService)
+        public ProductsController(IProductService productService)
         {
             this.productService = productService;
         }
-		[HttpGet]
-        public IEnumerable<Product> Get()
+        [HttpGet]
+        public IEnumerable<Product> GetProducts()
         {
             return productService.GetProducts();
         }
-        [Route("rate")]
-        [HttpPost]
-        public ActionResult Get([FromQuery] string productId, [FromQuery] float rating)
+        [HttpGet("{productId}")]
+        public ActionResult<Product> GetProductById(string productId)
         {
+            Product requstedProduct = productService.GetProductById(productId);
+            return requstedProduct == null ? NotFound() : requstedProduct;
+        }
+        [HttpPost("rate")]
+        public ActionResult PostProductRating([FromQuery] string productId, [FromQuery] float rating)
+        {
+            if (productService.GetProductById(productId) == null)
+                return NotFound();
             productService.AddRatings(productId, rating);
+            return Ok();
+        }
+        [HttpPut("create")]
+        public ActionResult<Product> PutNewProduct()
+        {
+            Product product = productService.CreateNewProduct();
+            return CreatedAtAction(nameof(GetProducts), new { productId = product.Id }, product);
+        }
+        [HttpDelete("delete/{productId}")]
+        public ActionResult DeleteProduct(string productId)
+        {
+            productService.DeleteProductById(productId);
             return Ok();
         }
     }
