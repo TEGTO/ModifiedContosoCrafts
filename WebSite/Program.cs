@@ -1,6 +1,7 @@
 using MySqlConnector;
 using ContosoCrafts.WebSite.Middleware;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.DataAcess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,8 @@ var services = builder.Services;
 services.AddRazorPages();
 services.AddServerSideBlazor();
 services.AddMySqlDataSource(builder.Configuration.GetConnectionString("Default")!);
-services.AddSingleton<IProductService, MySqlProductService>();
+services.AddSingleton<IDatabaseControler, MySqlDatabaseControler>();
+services.AddSingleton<IProductService, DBProductService>();
 services.AddControllers();
 
 var app = builder.Build();

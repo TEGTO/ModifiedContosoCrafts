@@ -6,4 +6,4 @@ PUT https://localhost:44301/products/create
 ###
 DELETE https://localhost:44301/products/delete/9950a450-dee7-4f9a-a022-9b025a9b792d
 ###
-POST https://localhost:44301/products/rate?ProductId=1&Rating=5
+POST https://localhost:44301/products/rate?ProductId=2&Rating=5

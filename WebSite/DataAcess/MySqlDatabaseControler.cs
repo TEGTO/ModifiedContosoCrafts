@@ -1,13 +1,14 @@
 ﻿using ContosoCrafts.WebSite.Models;
 using MySqlConnector;
+using System.Data.Common;
 
-namespace ContosoCrafts.WebSite.Services
+namespace ContosoCrafts.WebSite.DataAcess
 {
-	public class MySqlProductService : IProductService
+	public class MySqlDatabaseControler : IDatabaseControler
 	{
-		private MySqlConnection connection;
+		private readonly MySqlConnection connection;
 
-		public MySqlProductService(MySqlConnection connection)
+		public MySqlDatabaseControler(MySqlConnection connection)
 		{
 			this.connection = connection;
 			OpenConnection();
@@ -33,19 +34,16 @@ namespace ContosoCrafts.WebSite.Services
 				Title = string.Empty,
 				Description = string.Empty
 			};
-			using (connection.OpenAsync())
+			var query = "INSERT INTO products (Id, Maker, Image, Url, Title, Description) VALUES (@Id, @Maker, @Image, @Url, @Title, @Description)";
+			using (var command = new MySqlCommand(query, connection))
 			{
-				var query = "INSERT INTO products (Id, Maker, Image, Url, Title, Description) VALUES (@Id, @Maker, @Image, @Url, @Title, @Description)";
-				using (var command = new MySqlCommand(query, connection))
-				{
-					command.Parameters.AddWithValue("@Id", product.Id);
-					command.Parameters.AddWithValue("@Maker", product.Maker);
-					command.Parameters.AddWithValue("@Image", product.Image);
-					command.Parameters.AddWithValue("@Url", product.Url);
-					command.Parameters.AddWithValue("@Title", product.Title);
-					command.Parameters.AddWithValue("@Description", product.Description);
-					command.ExecuteNonQuery();
-				}
+				command.Parameters.AddWithValue("@Id", product.Id);
+				command.Parameters.AddWithValue("@Maker", product.Maker);
+				command.Parameters.AddWithValue("@Image", product.Image);
+				command.Parameters.AddWithValue("@Url", product.Url);
+				command.Parameters.AddWithValue("@Title", product.Title);
+				command.Parameters.AddWithValue("@Description", product.Description);
+				command.ExecuteNonQuery();
 			}
 			return product;
 		}

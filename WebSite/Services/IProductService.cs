@@ -2,7 +2,7 @@
 
 namespace ContosoCrafts.WebSite.Services
 {
-	public interface IProductService
+	public interface IProductService 
 	{
 		public void AddRatings(string productId, float rating);
 		public IEnumerable<Product> GetProducts();
