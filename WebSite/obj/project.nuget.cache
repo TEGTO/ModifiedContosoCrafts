@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "96PW5wnCjfRbyxN65iMo05vA3FZa26oDsojTMDQvNDM/FNnkzwFFfhrzfpk4uSRsWwDOVltROFbzyjIOf6KcWg==",
+  "dgSpecHash": "0ZZgCiLJJRcoEEQDIP7j+Hz74wrqQIm6kVLtTQuoxRgeA0QE8NUAxiY1nLY0fCL1wlR4BQYCn9g4ceDCiQehHw==",
   "success": true,
-  "projectFilePath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\WebSite\\ContosoCrafts.WebSite.csproj",
+  "projectFilePath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\ModifiedContosoCrafts\\WebSite\\ContosoCrafts.WebSite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pshon\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
     "C:\\Users\\pshon\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.3.0\\microsoft.aspnet.webapi.core.5.3.0.nupkg.sha512",

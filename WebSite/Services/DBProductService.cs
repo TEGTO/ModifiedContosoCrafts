@@ -1,13 +1,13 @@
-﻿using ContosoCrafts.WebSite.DataAcess;
-using ContosoCrafts.WebSite.Models;
+﻿using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services.DatabaseAcess;
 
 namespace ContosoCrafts.WebSite.Services
 {
-	public class DBProductService : IProductService
+    public class DBProductService : IProductService
 	{
-		private IDatabaseControler controler;
+		private IDatabaseAcess controler;
 
-		public DBProductService(IDatabaseControler controler)
+		public DBProductService(IDatabaseAcess controler)
 		{
 			this.controler = controler;
 		}

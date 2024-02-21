@@ -1,19 +1,19 @@
-using ContosoCrafts.WebSite.DataAcess;
 using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services.DatabaseAcess;
 using Moq;
 
 namespace ContosoCrafts.WebSite.Services.Tests
 {
-	[TestFixture()]
+    [TestFixture()]
 	public class DBProductServiceTests
 	{
-		private Mock<IDatabaseControler> mockControler;
+		private Mock<IDatabaseAcess> mockControler;
 		private DBProductService productService;
 
 		[SetUp]
 		public void Setup()
 		{
-			mockControler = new Mock<IDatabaseControler>();
+			mockControler = new Mock<IDatabaseAcess>();
 			productService = new DBProductService(mockControler.Object);
 		}
 		[Test]

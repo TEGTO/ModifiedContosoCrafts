@@ -1544,11 +1544,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\TestContosoCraftsApi\\TestContosoCraftsApi.csproj",
+      "projectUniqueName": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\ModifiedContosoCrafts\\TestContosoCraftsApi\\TestContosoCraftsApi.csproj",
       "projectName": "TestContosoCraftsApi",
-      "projectPath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\TestContosoCraftsApi\\TestContosoCraftsApi.csproj",
+      "projectPath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\ModifiedContosoCrafts\\TestContosoCraftsApi\\TestContosoCraftsApi.csproj",
       "packagesPath": "C:\\Users\\pshon\\.nuget\\packages\\",
-      "outputPath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\TestContosoCraftsApi\\obj\\",
+      "outputPath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\ModifiedContosoCrafts\\TestContosoCraftsApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1563,14 +1563,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\WebSite\\ContosoCrafts.WebSite.csproj": {
-              "projectPath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\WebTest\\WebSite\\ContosoCrafts.WebSite.csproj"
+            "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\ModifiedContosoCrafts\\WebSite\\ContosoCrafts.WebSite.csproj": {
+              "projectPath": "D:\\VisualStudioALL [D ver.]\\ProjectsC#\\ASP\\ModifiedContosoCrafts\\WebSite\\ContosoCrafts.WebSite.csproj"
             }
           }
         }
@@ -1579,6 +1580,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1626,7 +1632,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   },

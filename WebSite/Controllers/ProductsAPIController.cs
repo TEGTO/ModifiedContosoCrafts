@@ -6,11 +6,11 @@ namespace WebContosoCrafts.WebSiteSite.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsAPIController : ControllerBase
     {
         private IProductService productService;
 
-        public ProductsController(IProductService productService)
+        public ProductsAPIController(IProductService productService)
         {
             this.productService = productService;
         }
